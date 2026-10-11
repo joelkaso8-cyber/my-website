@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://joelkaso8-website.netlify.app/sitemap.xml

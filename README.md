@@ -13,6 +13,8 @@ Joel's personal website: plain HTML, CSS and JavaScript, hosted for free on Netl
 | `script.js`    | Mobile menu, light/dark toggle, scroll effects, footer year      |
 | `favicon.svg`  | The browser-tab icon                                             |
 | `netlify.toml` | Netlify settings: no build step, publish this folder as-is       |
+| `robots.txt`   | Lets search engines crawl the site and points them to the sitemap |
+| `sitemap.xml`  | Lists the site's pages for Google; update `lastmod` after edits  |
 | `.nojekyll`    | Only used if the site is also served from GitHub Pages           |
 
 ## Editing the site
