@@ -22,6 +22,7 @@ Joel's personal website: plain HTML, CSS and JavaScript, hosted for free on Netl
 - **Text:** edit `index.html`. Each section is marked with an `id` (`about`, `projects`, `contact`).
 - **Add a project:** copy one `<li data-reveal>…</li>` block inside `<ul class="project-grid">` and change its text and link.
 - **Colors:** change `--color-accent` (and the other `--color-*` variables) at the top of `styles.css`. The dark theme has its own block just below.
+- **Google Search Console:** the `google-site-verification` tag in the `<head>` of `index.html` proves to Google that you own the site. Leave it in, or Search Console stops trusting the site.
 
 ## Publishing
 
