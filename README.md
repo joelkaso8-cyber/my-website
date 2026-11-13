@@ -1,44 +1,39 @@
 # my-website
 
-Joel Kaso's personal hub: who Joel is, his websites for small businesses and PC Remote, and a WhatsApp chat one tap away. Plain HTML, CSS and JavaScript, hosted for free on GitHub Pages.
+Joel's personal website: plain HTML, CSS and JavaScript, hosted for free on GitHub Pages.
 
 **Live site:** https://joelkaso8-cyber.github.io/my-website/
 
-The design is a port departures board ("Nisjet / Departures"). The board at the top flips its letters as you scroll down and back as you scroll up.
-
 ## Files
 
-| File | What it does |
-| --- | --- |
-| `index.html` | The page: header, departures board, What I make, How I work, First departure, boarding-pass contact, footer |
-| `content.js` | All texts in English and Albanian, the board rows, phone, email and links. **Change texts here.** |
-| `script.js` | The flipping board, the Tirana clock, the language switch, WhatsApp links, the phone WhatsApp bar |
-| `styles.css` | Colours, fonts, sizes and layout. Colours are variables at the top. |
-| `fonts/` | Sofia Sans Extra Condensed (board and headings) and Sofia Sans (text), served from this repo |
-| `img/` | Screenshots of the sites and of PC Remote. Each image has a `.json` note saying where it came from. |
-| `og.jpg` | The picture shown when the link is shared |
-| `favicon.svg` | The browser-tab icon |
-| `CLAUDE.md` | Joel's rules for every website |
-| `.nojekyll` | Tells GitHub Pages to serve the files as-is |
+| File          | What it does                                                    |
+| ------------- | --------------------------------------------------------------- |
+| `index.html`  | The page content: header, hero, About, Projects, Contact, footer |
+| `styles.css`  | All styling. Colors, fonts and spacing are variables at the top  |
+| `script.js`   | Mobile menu, light/dark toggle, scroll effects, footer year     |
+| `favicon.svg` | The browser-tab icon                                            |
+| `.nojekyll`   | Tells GitHub Pages to serve the files as-is                     |
 
-## Change a text
+## Editing the site
 
-Open `content.js`. Every text is there twice, under `en:` and `sq:`. Change both. The English texts are also written in `index.html`, which is what shows before JavaScript runs; if you change an English text, change it there too.
+- **Text:** edit `index.html`. Each section is marked with an `id` (`about`, `projects`, `contact`).
+- **Add a project:** copy one `<li data-reveal>…</li>` block inside `<ul class="project-grid">` and change its text and link.
+- **Colors:** change `--color-accent` (and the other `--color-*` variables) at the top of `styles.css`. The dark theme has its own block just below.
 
-## Change the board
+Every push to `main` republishes the site within a minute or two.
 
-The rows are in `content.js` under `board`. Each row has `service`, `to`, `gate` and `status`. Keep them in capitals. The longest values that fit are 14 letters for service, 19 for to, 2 for gate and 15 for status.
+## Turning on GitHub Pages (one time)
 
-## Phone, WhatsApp, email
-
-Change `wa`, `waDisplay` and `email` at the top of `content.js`. The number also appears in `index.html` (the `tel:` link and the JSON-LD block); change it there too.
+1. Open **Settings → Pages** in this repository.
+2. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+3. Pick **main** and **/ (root)**, then **Save**.
 
 ## Previewing locally
+
+Open `index.html` in a browser, or run a small local server from this folder:
 
 ```sh
 python3 -m http.server 8000
 ```
 
-Then visit http://localhost:8000 and check phone width, both languages (`?lang=sq`), and scroll the board up and down.
-
-Every push to `main` republishes the site within a minute or two.
+Then visit http://localhost:8000.
