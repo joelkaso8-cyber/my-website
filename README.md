@@ -1,8 +1,8 @@
 # my-website
 
-Joel Kaso's personal hub: who Joel is, his websites for small businesses and PC Remote, and a WhatsApp chat one tap away. Plain HTML, CSS and JavaScript, hosted for free on GitHub Pages.
+Joel Kaso's personal hub: who Joel is, his websites for small businesses and PC Remote, and a WhatsApp chat one tap away. Plain HTML, CSS and JavaScript, hosted for free on Netlify.
 
-**Live site:** https://joelkaso8-cyber.github.io/my-website/
+**Live site:** https://joelkaso8-website.netlify.app/
 
 The design is a port departures board ("Nisjet / Departures"). The board at the top flips its letters as you scroll down and back as you scroll up.
 
@@ -19,7 +19,9 @@ The design is a port departures board ("Nisjet / Departures"). The board at the 
 | `og.jpg` | The picture shown when the link is shared |
 | `favicon.svg` | The browser-tab icon |
 | `CLAUDE.md` | Joel's rules for every website |
-| `.nojekyll` | Tells GitHub Pages to serve the files as-is |
+| `netlify.toml` | Netlify settings: no build step, publish this folder, security and cache headers |
+| `robots.txt`, `sitemap.xml` | Tell search engines what to crawl; update `lastmod` in the sitemap after big edits |
+| `.nojekyll` | Only used if the site is also served from GitHub Pages |
 
 ## Change a text
 
@@ -41,4 +43,6 @@ python3 -m http.server 8000
 
 Then visit http://localhost:8000 and check phone width, both languages (`?lang=sq`), and scroll the board up and down.
 
-Every push to `main` republishes the site within a minute or two.
+## Publishing
+
+The site is the Netlify project `joelkaso8-website`. Once that project is linked to this repository (Netlify: Project configuration, Build & deploy, Continuous deployment, Link repository), every push to `main` goes live within a minute. Leave the build command empty; `netlify.toml` sets the publish folder.
