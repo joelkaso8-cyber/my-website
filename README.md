@@ -35,6 +35,10 @@ The rows are in `content.js` under `board`. Each row has `service`, `to`, `gate`
 
 Change `wa`, `waDisplay` and `email` at the top of `content.js`. The number also appears in `index.html` (the `tel:` link and the JSON-LD block); change it there too.
 
+## Google Search Console
+
+The `google-site-verification` tag in the `<head>` of `index.html` proves to Google that you own the site. Leave it in, or Search Console stops trusting the site.
+
 ## Previewing locally
 
 ```sh
