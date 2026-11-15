@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* 60 obsidian · 30 warm bone type and hairlines · 10 copper, only for the main action and active states */
+@theme {
+  --color-ink: #09090b;
+  --color-ink-2: #111114;
+  --color-bone: #ece8e1;
+  --color-mute: #a39d94;
+  --color-copper: #cf8a5c;
+  --color-copper-2: #e2a47a;
+  --color-moss: #3c4a40;
+
+  --font-display: var(--font-instrument), "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  overflow-x: clip;
+  background: var(--color-ink);
+  color-scheme: dark;
+}
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+body {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection { background: var(--color-copper); color: var(--color-ink); }
+
+:focus-visible {
+  outline: 2px solid var(--color-copper-2);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Display headline: masked lines, each line slides up from below on reveal. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+}
+.mask { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.mask > span { display: block; will-change: transform; }
+
+.micro {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Slow light behind everything so the obsidian never reads as a flat dead black. */
+.aura {
+  position: fixed; inset: -20vmax; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(40vmax 30vmax at 18% 12%, rgb(60 74 64 / 0.42), transparent 70%),
+    radial-gradient(36vmax 28vmax at 85% 70%, rgb(207 138 92 / 0.14), transparent 70%),
+    radial-gradient(50vmax 40vmax at 50% 110%, rgb(38 46 58 / 0.5), transparent 70%);
+  animation: aura 38s ease-in-out infinite alternate;
+}
+@keyframes aura {
+  to { transform: translate3d(3vmax, -2vmax, 0) rotate(6deg) scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aura { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
