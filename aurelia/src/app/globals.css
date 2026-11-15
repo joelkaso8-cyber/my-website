@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* 60 obsidian charcoal · 30 warm alabaster (editorial sections, type) · 10 champagne gold, only for the
+   primary action and active states */
+@theme {
+  --color-ink: #0a0a09;
+  --color-ink-2: #141311;
+  --color-stone: #1d1a16;
+  --color-alabaster: #f3efea;
+  --color-sand: #e4ddd3;
+  --color-umber: #2b241d;
+  --color-mute: #a69f94;
+  --color-gold: #c8a97e;
+  --color-gold-2: #dcc29c;
+  --color-gold-ink: #6e5531;
+
+  --font-display: var(--font-cormorant), "Times New Roman", serif;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+html {
+  overflow-x: clip;
+  background: var(--color-ink);
+  color-scheme: dark;
+}
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+body {
+  background: var(--color-ink);
+  color: var(--color-alabaster);
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection { background: var(--color-gold); color: var(--color-ink); }
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-2);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+.on-light :focus-visible { outline-color: var(--color-gold-ink); }
+
+/* Editorial serif: tight leading, negative tracking. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+.mask { display: block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.1em; }
+.mask > span { display: block; will-change: transform; }
+
+.micro {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/* Warm evening light drifting behind the obsidian, so it never reads as a flat black. */
+.aura {
+  position: fixed; inset: -20vmax; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(42vmax 30vmax at 78% 14%, rgb(200 169 126 / 0.13), transparent 70%),
+    radial-gradient(38vmax 30vmax at 12% 64%, rgb(92 66 44 / 0.32), transparent 70%),
+    radial-gradient(50vmax 40vmax at 50% 112%, rgb(54 44 36 / 0.5), transparent 70%);
+  animation: aura 40s ease-in-out infinite alternate;
+}
+@keyframes aura {
+  to { transform: translate3d(-3vmax, 2vmax, 0) rotate(-5deg) scale(1.06); }
+}
+
+/* Photo that fades in once decoded; a warm stone tone stands in if it never arrives. */
+.photo { background: linear-gradient(135deg, #3a3129, #1d1a16); }
+.photo img { opacity: 0; transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1), transform 900ms cubic-bezier(0.16, 1, 0.3, 1); }
+.photo img[data-loaded="true"] { opacity: 1; }
+
+dialog::backdrop { background: rgb(10 10 9 / 0.72); backdrop-filter: blur(6px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .aura { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
