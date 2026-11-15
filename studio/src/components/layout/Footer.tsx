@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { ArrowUpRight, Mail, MessageCircle, Phone } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import MaskedTitle from "@/components/ui/MaskedTitle";
+import GoldWordmark from "@/components/ui/GoldWordmark";
 import { BRAND, FOOTER, waLink } from "@/content/site";
 import { useGSAP } from "@/lib/gsap";
 import { revealIn } from "@/lib/reveal";
@@ -42,10 +43,8 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      {/* Oversized wordmark, cropped by the page edge */}
-      <p aria-hidden="true" className="display pointer-events-none mt-16 select-none whitespace-nowrap text-center text-[22vw] leading-[0.8] text-white/[0.04] md:mt-10">
-        {BRAND.name}
-      </p>
+      {/* Oversized wordmark, cropped by the page edge, lit gold by the pointer */}
+      <GoldWordmark text={BRAND.name} />
     </footer>
   );
 }
